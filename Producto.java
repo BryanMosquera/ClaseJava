@@ -11,13 +11,66 @@ public class Producto {
     private String color;
     private double precio;
 
-    //Constructor 
-    public Producto(String id, String nombre, String marca, String color, double precio){
-    this.id = id;
-    this.nombre= nombre;
-    this.marca=marca;
-    this.color= color;
-    this.precio=precio;
+    //Constructor
+    public Producto(String id, String nombre, String marca, String color, double precio) {
+        this.id = id;
+        this.nombre = nombre;
+        this.marca = marca;
+        this.color = color;
+        setPrecio(precio);
     }
-    //Getters y Setters
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public double getPrecio() {
+        return precio;
+    }
+
+    public void setPrecio(double precio) {
+        if (precio < 10) {
+            throw new IllegalArgumentException("El precio debe ser minimo 10 euros.");
+        }
+        this.precio = precio;
+    }
+
+    @Override
+    public String toString() {
+        return "Producto{" +
+            "id='" + id + '\'' +
+            ", nombre='" + nombre + '\'' +
+            ", marca='" + marca + '\'' +
+            ", color='" + color + '\'' +
+            ", precio=" + precio +
+            '}';
+    }
 }
